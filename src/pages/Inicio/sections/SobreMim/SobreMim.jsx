@@ -13,11 +13,25 @@ const SobreMim = () => {
         backgroundColor: theme.palette.primary.main,
         height: "100vh",
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: theme.palette.primary.main,
+        width: "100%",
+        [theme.breakpoints.up('xs')]: {
+            display: "block",
+            padding: "20px",
+            paddingTop: "100px",
+            paddingBottom: "40px",
+        },
+        [theme.breakpoints.up('md')]: {
+            display: "flex",
+            alignItems: "center",
+            paddingTop: "100px",
+            height: "100vh"
+        },
     }));
 
     const StyledImagem = styled("img")(({theme})=> ({
-        width: "80%",
+        width: "75%",
         borderRadius: "50%",
         border: `1px solid ${theme.palette.primary.contrastText}`
     }));
