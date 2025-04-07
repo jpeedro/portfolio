@@ -1,9 +1,10 @@
+import Inicio from "./pages/Inicio/Inicio"
 
 const App = () => {
 
   return (
     <>
-      App
+      <Inicio/>
     </>
   )
 }
