@@ -5,6 +5,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import StyledButton from "../../../../components/StyledButton/StyledButton";
 import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
+import CV from "../../../../assets/Pdfs/CurriculoJoaoPedro.pdf"
 
 const SobreMim = () => {
 
@@ -35,6 +36,15 @@ const SobreMim = () => {
         border: `1px solid ${theme.palette.primary.contrastText}`
     }));
 
+    const DownloadCV = () => {
+        const link = document.createElement('a');
+        link.href = CV;
+        link.download = "João_Pedro_Nascimento.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild();
+    };
+    
     return (
       <>        
         <StyledSobreMim>
@@ -51,13 +61,25 @@ const SobreMim = () => {
                         </Box>
                     </Grid2>
                     <Grid2 size={{xs: 12, md: 7}}>
-                    <Box display="flex" alignItems="flex-start">
+                    <Box display="flex" alignItems="flex-start" >
                         <Box display="flex" alignItems="center" mr={2}>
                         <a href="https://github.com/jpeedro" target="_blank" rel="noopener noreferrer">
-                            <GitHubIcon sx={{ color: 'primary.contrastText', fontSize: 50, cursor: 'pointer', mr: 2}} />
+                        <GitHubIcon
+                                 sx={{
+                                    color: 'primary.contrastText',
+                                    fontSize: { xs: 30, sm: 40, md: 50 },
+                                    cursor: 'pointer'
+                                }}
+                            />
                         </a>
                         <a href="https://www.linkedin.com/in/jo%C3%A3opedronascimento" target="_blank" rel="noopener noreferrer">
-                            <LinkedInIcon sx={{ color: 'primary.contrastText', fontSize: 55, cursor: 'pointer'}} />
+                            <LinkedInIcon
+                                 sx={{
+                                    color: 'primary.contrastText',
+                                    fontSize: { xs: 33, sm: 40, md: 55 },
+                                    cursor: 'pointer'
+                                }}
+                            />
                         </a>
                         </Box>
                     </Box>
@@ -78,7 +100,7 @@ const SobreMim = () => {
                         </Typography>
                         <Grid2 container display="flex" justifyContent="left" spacing={3} pt={3}>
                             <Grid2 size={{ xs: 12, md: 4}} display="flex" justifyContent="center"> 
-                                <StyledButton onClick={() => console.log('donwload')}>
+                                <StyledButton onClick={() => DownloadCV()}>
                                     <DownloadIcon/>
                                     <Typography>
                                         Download CV
